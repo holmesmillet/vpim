@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'pp'
 require 'rake'
 
 def info(s)
@@ -12,6 +11,8 @@ def info(s)
     s.send(k.to_s+"=", v)
   end
 end
+
+
 
 spec_vpim = Gem::Specification.new do |s|
   info(s)
@@ -47,17 +48,17 @@ end
 
 #pp [spec_vpim, spec_vpim.instance_variables]
 
-spec_vpim_icalendar = Gem::Specification.new do |s|
-  info(s)
-  s.name              = "vpim_icalendar"
-  s.version           = "1.1"
-  s.summary           = "Virtual gem depending on vPim's iCalendar support for ruby"
-  s.description       = <<'---'
-This is a virtual gem, it exists to depend on vPim, which provides iCalendar
-support for ruby. You can install vPim directly.
----
-  s.add_dependency("vpim")
-end
+#spec_vpim_icalendar = Gem::Specification.new do |s|
+#  info(s)
+#  s.name              = "vpim_icalendar"
+#  s.version           = "1.1"
+#  s.summary           = "Virtual gem depending on vPim's iCalendar support for ruby"
+#  s.description       = <<'---'
+#This is a virtual gem, it exists to depend on vPim, which provides iCalendar
+#support for ruby. You can install vPim directly.
+#---
+#  s.add_dependency("vpim")
+#end
 
 #require 'hoe'
 #
@@ -69,6 +70,6 @@ end
 
 if $0==__FILE__
   Gem::Builder.new(spec_vpim).build
-  Gem::Builder.new(spec_vpim_icalendar).build
+#  Gem::Builder.new(spec_vpim_icalendar).build
 end
 
